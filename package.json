@@ -6,6 +6,7 @@
     "author": "Harshit Bafna",
     "main": "index.js",
     "scripts": {
+        "build": "npx tsc",
         "dev": "cross-env NODE_ENV=development nodemon src/index.ts",
         "start": "cross-env NODE_ENV=production node dist/index.js",
         "prepare": "husky",
