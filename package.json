@@ -1,26 +1,31 @@
 {
-  "name": "node-project-setup",
-  "version": "1.0.0",
-  "description": "",
-  "license": "ISC",
-  "author": "Harshit Bafna",
-  "type": "commonjs",
-  "main": "index.js",
-  "scripts": {
-    "dev": "nodemon src/index.ts",
-    "start": "node dist/index.js"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^19.8.1",
-    "@commitlint/config-conventional": "^19.8.1",
-    "@eslint/js": "^9.31.0",
-    "@types/node": "^24.1.0",
-    "eslint": "^9.31.0",
-    "eslint-config-prettier": "^10.1.8",
-    "nodemon": "^3.1.10",
-    "prettier": "^3.6.2",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.8.3",
-    "typescript-eslint": "^8.38.0"
-  }
+    "name": "node-project-setup",
+    "version": "1.0.0",
+    "description": "",
+    "license": "ISC",
+    "author": "Harshit Bafna",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nodemon src/index.ts",
+        "start": "node dist/index.js",
+        "prepare": "husky",
+        "lint:eslint": "eslint",
+        "format:check": "prettier . --check",
+        "format:fix": "prettier . --write"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^19.8.1",
+        "@commitlint/config-conventional": "^19.8.1",
+        "@eslint/js": "^9.31.0",
+        "@types/node": "^24.1.0",
+        "eslint": "^9.31.0",
+        "eslint-config-prettier": "^10.1.8",
+        "husky": "^9.1.7",
+        "lint-staged": "^16.1.2",
+        "nodemon": "^3.1.10",
+        "prettier": "^3.6.2",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.8.3",
+        "typescript-eslint": "^8.38.0"
+    }
 }
