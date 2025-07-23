@@ -1,5 +1,6 @@
 import { NextFunction, Request } from 'express'
 import { ValidationError, TDtoError } from '../types'
+import { logger } from '../../service/winston'
 
 export default (nextFunc: NextFunction, req: Request, errorStatusCode = 400, errMessage: ValidationError[], data?: unknown): void => {
     const errorObj: TDtoError = {
@@ -16,8 +17,7 @@ export default (nextFunc: NextFunction, req: Request, errorStatusCode = 400, err
         trace: null
     }
 
-    // eslint-disable-next-line no-console
-    console.error(`CONTROLLER_ERROR`, {
+    logger.error(`CONTROLLER_ERROR`, {
         meta: errorObj
     })
 

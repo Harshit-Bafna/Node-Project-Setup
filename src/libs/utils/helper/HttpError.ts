@@ -1,6 +1,7 @@
 import { NextFunction, Request } from 'express'
 import { THttpError } from '../types'
 import { responseMessage } from '../constants'
+import { logger } from '../../service/winston'
 
 export default (
     nextFunc: NextFunction,
@@ -22,8 +23,7 @@ export default (
         trace: err instanceof Error ? { error: err.stack } : null
     }
 
-    // eslint-disable-next-line no-console
-    console.error(`CONTROLLER_ERROR`, {
+    logger.error(`CONTROLLER_ERROR`, {
         meta: errorObj
     })
 
