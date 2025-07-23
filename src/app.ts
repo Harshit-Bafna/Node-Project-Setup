@@ -2,12 +2,22 @@ import express, { Application, NextFunction, Request, Response } from 'express'
 import path from 'path'
 import publicRoutes from './routes/publicRoutes'
 import { HttpError } from './libs/utils/helper'
-import { responseMessage } from './libs/utils/constants'
+import { environment, responseMessage } from './libs/utils/constants'
 import { GlobalErrorHandler } from './middleware'
+import cors from 'cors'
+import helmet from 'helmet'
 
 const app: Application = express()
 
 // middlewares
+app.use(helmet())
+app.use(
+    cors({
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS', 'HEAD'],
+        origin: [environment.CLIENT_URL as string],
+        credentials: true
+    })
+)
 app.use(express.json())
 app.use(express.static(path.join(__dirname, '../', 'public')))
 app.use(express.urlencoded({ extended: true }))
