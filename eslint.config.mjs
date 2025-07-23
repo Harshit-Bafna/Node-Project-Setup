@@ -29,7 +29,7 @@ export default tseslint.config(
                     paths: [
                         {
                             name: 'dotenv-flow',
-                            message: 'Import dotenv-flow only in src/libs/utils/constants/environment.ts'
+                            message: 'Import dotenv-flow only in src/libs/utils/constants/environment/environment.ts'
                         }
                     ]
                 }
@@ -37,7 +37,7 @@ export default tseslint.config(
         }
     },
     {
-        files: ['src/libs/utils/constants/environment.ts'],
+        files: ['src/libs/utils/constants/environment/environment.ts'],
         rules: {
             'no-restricted-imports': 'off'
         }
